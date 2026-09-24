@@ -181,9 +181,7 @@ body::after {
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  background:
-    radial-gradient(circle at 50% 35%, rgba(226,27,45,.18), transparent 42%),
-    linear-gradient(180deg, #0f1114 0%, #050607 100%);
+  background: transparent;
 }
 
 .sponsor-logo img {
@@ -193,6 +191,7 @@ body::after {
   height: 80%;
   object-fit: contain;
   object-position: center;
+  mix-blend-mode: screen;
   transition: transform .35s ease;
 }
 
