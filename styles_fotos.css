@@ -311,3 +311,50 @@ footer {
     font-size: .9rem;
   }
 }
+
+
+/* =========================================================
+   AJUSTE ESPECÍFICO PARA CELULARES
+   Evita que Chrome/Safari móvil rendericen el JPG como un
+   bloque negro al usar composición por GPU.
+   ========================================================= */
+@media (max-width: 768px) {
+  .sponsor-card,
+  .sponsor-card:hover,
+  .sponsor-logo,
+  .sponsor-card h2 {
+    background: transparent !important;
+    box-shadow: none !important;
+    border: 0 !important;
+    outline: 0 !important;
+  }
+
+  .sponsor-logo {
+    isolation: auto !important;
+    transform: none !important;
+    contain: none !important;
+    overflow: visible !important;
+  }
+
+  .sponsor-logo img,
+  .sponsor-card:hover .sponsor-logo img {
+    mix-blend-mode: screen !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    border: 0 !important;
+    outline: 0 !important;
+    filter: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+    will-change: auto !important;
+    -webkit-transform: none !important;
+    -webkit-backface-visibility: visible !important;
+    backface-visibility: visible !important;
+  }
+
+  .sponsor-placeholder {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+  }
+}
