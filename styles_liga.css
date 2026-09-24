@@ -1,0 +1,279 @@
+/* REDISEÑO — LIGA */
+
+:root {
+  --black: #070809;
+  --black-2: #0d0f11;
+  --white: #f7f7f4;
+  --gray: #a7aaad;
+  --red: #e21b2d;
+  --red-dark: #8f0e1b;
+  --border: rgba(255,255,255,.12);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.navbar {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 14px;
+}
+
+.dropdown-btn {
+  background: rgba(10,12,14,.88);
+  color: var(--white);
+  padding: 10px 18px;
+  font-size: .92rem;
+  font-weight: 800;
+  letter-spacing: .5px;
+  text-transform: uppercase;
+  border: 1px solid rgba(255,255,255,.12);
+  border-left: 3px solid var(--red);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: .25s ease;
+}
+
+.dropdown-btn:hover {
+  background: var(--red);
+  border-color: var(--red);
+  box-shadow: 0 10px 25px rgba(226,27,45,.18);
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  right: 0;
+  min-width: 180px;
+  z-index: 20;
+  overflow: hidden;
+  background: rgba(8,10,12,.98);
+  border: 1px solid var(--border);
+  border-top: 3px solid var(--red);
+  border-radius: 4px;
+  box-shadow: 0 18px 35px rgba(0,0,0,.55);
+}
+
+.dropdown-content a {
+  display: block;
+  padding: 12px 16px;
+  color: var(--white);
+  text-decoration: none;
+  font-size: .9rem;
+  font-weight: 700;
+  transition: .2s ease;
+}
+
+.dropdown-content a:hover {
+  background: rgba(226,27,45,.18);
+  padding-left: 20px;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+h1 {
+  width: min(100%, 1100px);
+  margin: 8px 0 30px;
+  padding: 20px 165px 20px 26px;
+  color: var(--white);
+  background-color: rgba(8,10,12,.18);
+  background-image: url('./Imagenes/logo.png');
+  background-repeat: no-repeat;
+  background-position: right 28px center;
+  background-size: 105px auto;
+  font-size: clamp(2rem, 4.5vw, 3.5rem);
+  line-height: .95;
+  font-weight: 950;
+  letter-spacing: -1.5px;
+  text-align: left;
+  text-transform: uppercase;
+  border: 0;
+  border-left: 8px solid var(--red);
+  border-radius: 0;
+  box-shadow: none;
+  text-shadow: 4px 5px 0 rgba(226,27,45,.16);
+  transform: none;
+}
+
+h1::first-letter {
+  color: var(--red);
+}
+
+footer {
+  width: 100%;
+  margin-top: auto;
+  padding: 22px 0 4px;
+  color: var(--gray);
+  font-size: .78rem;
+  font-weight: 600;
+  letter-spacing: 1.2px;
+  text-align: center;
+  text-transform: uppercase;
+  border-top: 1px solid rgba(255,255,255,.08);
+}
+
+body {
+  min-height: 100vh;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: var(--white);
+  overflow-x: hidden;
+  position: relative;
+  background:
+    linear-gradient(115deg, rgba(4,5,6,.94) 0%, rgba(8,9,11,.80) 48%, rgba(10,4,6,.94) 100%),
+    url('./Imagenes/fondoweb.png') center / cover fixed no-repeat;
+}
+
+body::before {
+  content: none;
+  display: none;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 5px;
+  height: 100vh;
+  background: linear-gradient(180deg, var(--red), var(--red-dark) 50%, transparent);
+  pointer-events: none;
+}
+
+.navbar { max-width: 1400px; }
+
+.ligas-wrapper {
+  width: 100%;
+  max-width: 1400px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 18px;
+  margin-bottom: 40px;
+}
+
+.liga-container {
+  width: 100%;
+  overflow: hidden;
+  background: rgba(13,15,18,.90);
+  border: 1px solid var(--border);
+  border-top: 4px solid var(--red);
+  border-radius: 4px;
+  box-shadow: 0 18px 38px rgba(0,0,0,.50);
+}
+
+.iframe-header {
+  min-height: 58px;
+  padding: 14px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  background: #0b0d0f;
+  border-bottom: 1px solid rgba(255,255,255,.08);
+}
+
+.iframe-header span {
+  color: var(--white);
+  font-size: .9rem;
+  font-weight: 900;
+  letter-spacing: .8px;
+  text-transform: uppercase;
+}
+
+.btn-externo {
+  padding: 8px 12px;
+  color: #fff;
+  text-decoration: none;
+  font-size: .78rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  background: #15181c;
+  border: 1px solid rgba(255,255,255,.12);
+  border-left: 3px solid var(--red);
+  border-radius: 3px;
+  transition: .25s ease;
+}
+
+.btn-externo:hover {
+  background: var(--red);
+  border-color: var(--red);
+}
+
+.iframe-wrapper {
+  width: 100%;
+  height: 550px;
+  background: #fff;
+}
+
+.iframe-wrapper iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+@media (max-width: 768px) {
+  body {
+    padding: 16px;
+    background-color: var(--black);
+    background-image:
+      linear-gradient(115deg, rgba(4,5,6,.95), rgba(8,9,11,.84), rgba(10,4,6,.95)),
+      url('./Imagenes/fondoweb.png');
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+  }
+
+  h1 {
+    margin-bottom: 20px;
+    padding: 16px 92px 16px 16px;
+    font-size: 1.8rem;
+    letter-spacing: -1px;
+    border-left-width: 6px;
+    background-size: 62px auto;
+    background-position: right 14px center;
+  }
+
+  .navbar {
+    margin-bottom: 10px;
+  }
+
+  .dropdown-btn {
+    padding: 9px 14px;
+    font-size: .82rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .ligas-wrapper {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .iframe-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .iframe-wrapper {
+    height: 520px;
+  }
+}

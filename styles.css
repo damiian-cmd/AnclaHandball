@@ -1,0 +1,375 @@
+/* =========================================================
+   REDISEÑO V2 — ESTILO EDITORIAL / SPORTS PREMIUM
+   Mantiene la estructura HTML existente.
+   ========================================================= */
+
+:root {
+  --black: #070809;
+  --black-2: #0d0f11;
+  --white: #f7f7f4;
+  --gray: #a7aaad;
+  --red: #e21b2d;
+  --red-dark: #8f0e1b;
+  --border: rgba(255,255,255,.12);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: var(--white);
+  overflow-x: hidden;
+
+  background:
+    linear-gradient(115deg, rgba(4,5,6,.94) 0%, rgba(8,9,11,.78) 48%, rgba(10,4,6,.94) 100%),
+    url('./Imagenes/fondopm.png') center / cover fixed no-repeat;
+
+  position: relative;
+}
+
+/* Textura sutil sobre toda la página */
+body::before {
+  content: none;
+  display: none;
+}
+
+/* Línea roja decorativa lateral */
+body::after {
+  content: "";
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 5px;
+  height: 100vh;
+  background: linear-gradient(
+    180deg,
+    var(--red),
+    var(--red-dark) 50%,
+    transparent
+  );
+  pointer-events: none;
+}
+
+/* =========================================================
+   TITULAR
+   ========================================================= */
+
+h1 {
+  width: min(100%, 1000px);
+  margin: 12px 0 28px;
+  padding: 24px 30px;
+
+  color: var(--white);
+  background: transparent;
+
+  font-size: clamp(2rem, 5vw, 4rem);
+  line-height: .95;
+  font-weight: 950;
+  letter-spacing: -2px;
+  text-align: left;
+  text-transform: uppercase;
+
+  border: 0;
+  border-left: 9px solid var(--red);
+  border-radius: 0;
+
+  box-shadow: none;
+  text-shadow: 4px 5px 0 rgba(226,27,45,.18);
+
+  transform: none;
+
+  background-image: url('./Imagenes/logo.png');
+  background-repeat: no-repeat;
+  background-position: right 35px center;
+  background-size: 125px auto;
+  padding-right: 180px;
+}
+
+h1::first-letter {
+  color: var(--red);
+}
+
+h1:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+/* =========================================================
+   PANEL PRINCIPAL
+   ========================================================= */
+
+.menu {
+  width: 100%;
+  max-width: 1000px;
+
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+
+  margin: 0 0 45px;
+  padding: 0;
+
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+/* =========================================================
+   TARJETAS
+   ========================================================= */
+
+.menu h4 {
+  position: relative;
+  min-width: 0;
+  overflow: hidden;
+
+  background: #111315;
+
+  border: 1px solid var(--border);
+  border-radius: 4px;
+
+  box-shadow:
+    0 15px 35px rgba(0,0,0,.48),
+    inset 0 0 0 1px rgba(255,255,255,.015);
+
+  transition:
+    transform .35s cubic-bezier(.2,.8,.2,1),
+    box-shadow .35s ease,
+    border-color .35s ease;
+}
+
+/* Número / barra visual de cada bloque */
+.menu h4::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  z-index: 5;
+  background: var(--red);
+  transform: scaleX(.15);
+  transform-origin: left;
+  transition: transform .4s ease;
+}
+
+/* Oscurecimiento cinematográfico */
+.menu h4::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(0,0,0,.02) 20%,
+      rgba(0,0,0,.18) 42%,
+      rgba(0,0,0,.92) 100%
+    );
+}
+
+.menu h4:hover {
+  transform: translateY(-8px);
+  border-color: rgba(226,27,45,.55);
+
+  box-shadow:
+    0 24px 50px rgba(0,0,0,.65),
+    0 0 35px rgba(226,27,45,.10);
+}
+
+.menu h4:hover::before {
+  transform: scaleX(1);
+}
+
+/* =========================================================
+   IMAGEN + TEXTO
+   ========================================================= */
+
+.menu h4 a {
+  position: relative;
+  z-index: 3;
+
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+  gap: 12px;
+
+  height: 280px;
+  padding: 22px;
+
+  color: white;
+  text-decoration: none;
+
+  font-size: 1.45rem;
+  line-height: 1;
+  font-weight: 900;
+  letter-spacing: .5px;
+  text-transform: uppercase;
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  text-shadow:
+    0 2px 3px #000,
+    0 5px 15px rgba(0,0,0,.9);
+
+  transition:
+    background-size .65s cubic-bezier(.2,.7,.2,1),
+    filter .35s ease;
+}
+
+.menu h4:hover a {
+  background-size: 112%;
+  filter: saturate(1.08);
+}
+
+/* Pequeño indicador rojo antes del título */
+.menu h4 a::before {
+  content: "";
+  display: inline-block;
+
+  width: 9px;
+  height: 36px;
+  flex: 0 0 9px;
+
+  background: var(--red);
+  border-radius: 2px;
+
+  filter: drop-shadow(0 0 7px rgba(226,27,45,.45));
+}
+
+/* =========================================================
+   IMÁGENES EXISTENTES
+   ========================================================= */
+
+.menu h4 a.link-liga {
+  background-image: url('./Imagenes/fondov1.png');
+}
+
+.menu h4 a.link-plantel {
+  background-image: url('./Imagenes/fondov2.png');
+}
+
+.menu h4 a.link-jugar {
+  background-image: url('./Imagenes/fotov4.png');
+}
+
+.menu h4 a.link-sponsors {
+  background-image:
+    linear-gradient(180deg, rgba(0,0,0,.08) 0%, rgba(0,0,0,.18) 48%, rgba(0,0,0,.52) 100%),
+    url('./Imagenes/sponsors-cover.jpg');
+  background-position: center;
+}
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+footer {
+  width: min(100%, 1000px);
+  margin-top: auto;
+  padding: 22px 0 5px;
+
+  color: var(--gray);
+  font-size: .78rem;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-align: left;
+  text-transform: uppercase;
+
+  border-top: 1px solid rgba(255,255,255,.08);
+}
+
+/* =========================================================
+   TABLETS / CELULARES
+   ========================================================= */
+
+@media (max-width: 768px) {
+  body {
+    padding: 18px;
+    min-height: 100vh;
+
+    background-color: #070809;
+    background-image:
+      linear-gradient(115deg, rgba(4,5,6,.94) 0%, rgba(8,9,11,.80) 48%, rgba(10,4,6,.94) 100%),
+      url('./Imagenes/fondopm.png');
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+  }
+
+  h1 {
+    width: 100%;
+    margin-top: 5px;
+    margin-bottom: 20px;
+    padding: 16px 18px;
+    padding-right: 95px;
+
+    font-size: 2rem;
+    letter-spacing: -1px;
+    border-left-width: 6px;
+
+    background-image: url('./Imagenes/logo.png');
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+    background-size: 70px auto;
+  }
+
+  .menu {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .menu h4 a {
+    height: 190px;
+    padding: 18px;
+    font-size: 1.2rem;
+  }
+
+  .menu h4 a::before {
+    width: 7px;
+    height: 30px;
+    flex-basis: 7px;
+  }
+
+  footer {
+    text-align: center;
+  }
+}
+
+/* =========================================================
+   PANTALLAS GRANDES
+   ========================================================= */
+
+@media (min-width: 1200px) {
+  body {
+    padding-top: 42px;
+  }
+
+  .menu {
+    gap: 22px;
+  }
+
+  .menu h4 a {
+    height: 300px;
+  }
+}
+

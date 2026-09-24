@@ -1,0 +1,15 @@
+ACTUALIZACIÓN REALIZADA:
+- La tarjeta SPONSORS del inicio ahora usa la foto del jugador (Imagenes/sponsors-cover.jpg).
+- La página fotos.html fue convertida en sección de Sponsors con 8 sponsors reales.
+- Se agregaron los logos dentro de la carpeta Imagenes.
+
+Archivos de imagen agregados:
+- sponsors-cover.jpg
+- bruno-fotografia.jpg
+- go7.jpg
+- jmc-espacios-verdes.jpg
+- handball-red.jpg
+- viejo-lobo-polvorines.jpg
+- nd-handball.jpg
+- kempa.jpg
+- grint.jpg
