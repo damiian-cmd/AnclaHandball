@@ -1,12 +1,11 @@
 /* =========================================================
    SPONSORS — ANCLA HANDBALL
-   Ajustado para mostrar solo los sponsors, sin recuadros ni
-   textos superpuestos detrás de los logos.
+   Versión limpia: sin recuadros, sin hover molesto y tratando
+   el fondo negro de los logos para que no se vea.
    ========================================================= */
 
 :root {
   --black: #070809;
-  --black-2: #0d0f11;
   --white: #f7f7f4;
   --gray: #a7aaad;
   --red: #e21b2d;
@@ -21,7 +20,9 @@
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+}
 
 body {
   min-height: 100vh;
@@ -112,7 +113,9 @@ body::after {
   padding-left: 20px;
 }
 
-.dropdown:hover .dropdown-content { display: block; }
+.dropdown:hover .dropdown-content {
+  display: block;
+}
 
 /* CABECERA */
 .sponsors-header {
@@ -137,7 +140,9 @@ body::after {
   text-shadow: 4px 5px 0 rgba(226,27,45,.16);
 }
 
-.sponsors-header h1::first-letter { color: var(--red); }
+.sponsors-header h1::first-letter {
+  color: var(--red);
+}
 
 .sponsors-header p {
   margin-top: 12px;
@@ -148,7 +153,7 @@ body::after {
   line-height: 1.5;
 }
 
-/* GRID */
+/* GRID DE SPONSORS */
 .sponsors-grid {
   width: 100%;
   max-width: 1200px;
@@ -158,24 +163,26 @@ body::after {
   margin-bottom: 50px;
 }
 
-/* TARJETA SIN RECUADRO */
+/* TARJETAS SIN RECUADRO */
 .sponsor-card {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  background: transparent;
-  border: 0;
-  border-radius: 0;
-  box-shadow: none;
   overflow: visible;
-  transition: none;
+  background: transparent !important;
+  border: 0 !important;
+  border-top: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  transition: none !important;
 }
 
 .sponsor-card:hover {
-  transform: none;
-  border: 0;
-  box-shadow: none;
+  transform: none !important;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
 }
 
 .sponsor-logo {
@@ -185,21 +192,25 @@ body::after {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 8px;
   overflow: visible;
-  background: transparent;
-  isolation: isolate;
+  padding: 6px;
+  background: transparent !important;
+  box-shadow: none !important;
+  border: 0 !important;
 }
 
-/* Se oculta el placeholder porque generaba los textos detrás del logo */
+/* Oculta el texto placeholder que se veía detrás del logo */
 .sponsor-placeholder {
   display: none !important;
 }
 
+/*
+  Esto hace que el negro del JPG se funda con el fondo de la página.
+  Si un logo siguiera con negro, ese negro ya viene dentro de la imagen
+  y habría que pasarlo a PNG transparente.
+*/
 .sponsor-logo img {
   display: block;
-  position: relative;
-  z-index: 2;
   width: auto;
   max-width: 100%;
   height: auto;
@@ -207,15 +218,16 @@ body::after {
   object-fit: contain;
   object-position: center;
   background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
   mix-blend-mode: screen;
-  filter: brightness(1.12) contrast(1.1);
-  transition: none;
+  filter: brightness(1.15) contrast(1.12);
+  transition: none !important;
 }
 
-/* Sin efecto hover para que no vuelva a aparecer el cuadrado */
 .sponsor-card:hover .sponsor-logo img {
-  transform: none;
-  filter: brightness(1.12) contrast(1.1);
+  transform: none !important;
+  filter: brightness(1.15) contrast(1.12);
 }
 
 .sponsor-card h2 {
@@ -227,8 +239,9 @@ body::after {
   letter-spacing: .6px;
   text-transform: uppercase;
   text-align: center;
-  border: 0;
-  background: transparent;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
 }
 
 footer {
@@ -287,7 +300,6 @@ footer {
 
   .sponsor-logo {
     min-height: 160px;
-    padding: 4px;
   }
 
   .sponsor-logo img {
