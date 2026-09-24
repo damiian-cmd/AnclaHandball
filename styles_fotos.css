@@ -1,7 +1,7 @@
 /* =========================================================
    SPONSORS — ANCLA HANDBALL
-   El archivo conserva el nombre styles_fotos.css para que
-   puedas reemplazarlo sin cambiar la estructura del proyecto.
+   Ajustado para mostrar solo los sponsors, sin recuadros ni
+   textos superpuestos detrás de los logos.
    ========================================================= */
 
 :root {
@@ -148,84 +148,74 @@ body::after {
   line-height: 1.5;
 }
 
-/* GRID DE SPONSORS */
+/* GRID */
 .sponsors-grid {
   width: 100%;
   max-width: 1200px;
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 18px;
+  gap: 26px 22px;
   margin-bottom: 50px;
 }
 
-/*
-  IMPORTANTE:
-  Se eliminó el fondo negro de la tarjeta para que se vea
-  sólo el sponsor y no el recuadro.
-*/
+/* TARJETA SIN RECUADRO */
 .sponsor-card {
-  overflow: visible;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
   background: transparent;
   border: 0;
-  border-top: 0;
   border-radius: 0;
   box-shadow: none;
-  transition: transform .25s ease;
+  overflow: visible;
+  transition: none;
 }
 
 .sponsor-card:hover {
-  transform: translateY(-4px);
+  transform: none;
   border: 0;
   box-shadow: none;
 }
 
 .sponsor-logo {
   position: relative;
-  min-height: 210px;
+  width: 100%;
+  min-height: 190px;
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 8px;
   overflow: visible;
   background: transparent;
-  padding: 10px;
+  isolation: isolate;
+}
+
+/* Se oculta el placeholder porque generaba los textos detrás del logo */
+.sponsor-placeholder {
+  display: none !important;
 }
 
 .sponsor-logo img {
+  display: block;
   position: relative;
   z-index: 2;
-  width: 100%;
-  max-width: 240px;
+  width: auto;
+  max-width: 100%;
   height: auto;
-  max-height: 180px;
+  max-height: 170px;
   object-fit: contain;
   object-position: center;
+  background: transparent !important;
   mix-blend-mode: screen;
-  filter: brightness(1.12) contrast(1.08);
-  transition: transform .28s ease, filter .28s ease;
+  filter: brightness(1.12) contrast(1.1);
+  transition: none;
 }
 
+/* Sin efecto hover para que no vuelva a aparecer el cuadrado */
 .sponsor-card:hover .sponsor-logo img {
-  transform: scale(1.05);
-  filter: brightness(1.18) contrast(1.1);
-}
-
-.sponsor-placeholder {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-  color: #777;
-  font-size: 1rem;
-  font-weight: 950;
-  letter-spacing: 1.5px;
-  text-align: center;
-}
-
-.sponsor-logo img + .sponsor-placeholder,
-.sponsor-logo img[style*="display: block"] + .sponsor-placeholder {
-  display: none;
+  transform: none;
+  filter: brightness(1.12) contrast(1.1);
 }
 
 .sponsor-card h2 {
@@ -237,7 +227,7 @@ body::after {
   letter-spacing: .6px;
   text-transform: uppercase;
   text-align: center;
-  border-top: 0;
+  border: 0;
   background: transparent;
 }
 
@@ -292,17 +282,16 @@ footer {
 
   .sponsors-grid {
     grid-template-columns: 1fr;
-    gap: 16px;
+    gap: 20px;
   }
 
   .sponsor-logo {
-    min-height: 170px;
-    padding: 6px;
+    min-height: 160px;
+    padding: 4px;
   }
 
   .sponsor-logo img {
-    max-width: 220px;
-    max-height: 150px;
+    max-height: 145px;
   }
 
   .sponsor-card h2 {
